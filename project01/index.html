@@ -1,6 +1,8 @@
 <html>
 	<head>
 		<title>Life Figure-Outer Application</title>
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<script src="formCheck.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<div class="header">
@@ -9,37 +11,41 @@
 		</div>
 		<div class="menubar">
 			<ul id="mainmenu">
-				<li>Home</li>
-				<li>Interests</li>
-				<li>Health</li>
-				<li>Academic</li>
-				<li>Professional</li>
-				<li>Fun</li>
-				<li>Evil</li>
+				<li><a href="">Home</a></li>
+				<li><a href="">Interests</a></li>
+				<li><a href="">Health</a></li>
+				<li><a href="">Academic</a></li>
+				<li><a href="">Professional</a></li>
+				<li><a href="">Fun</a></li>
+				<li><a href="">Evil</a></li>
 			</ul>
-		</div>
-		<div class="content">
-			<h2>Lorem Ipsum Dolor Sit Amet.</h2>
-			<p>How do you feel today?</p>
-			<br />
-			<p>How would you like to feel today?<br />(choose all that apply)</p>
-		</div>
-		<div class="contentboxes">
-			<form>
-				<input type="text" />
-				<br />
-				<select multiple="multiple" size="4">
-					<option>Comfortably numb</option>
-					<option>Grumpy as poop, you jerk</option>
-					<option>Happy like I'm on controlled substances</option>
-					<option>Normal. Absolutely Normal.</option>
-				</select>
-				<input type="submit" value="Feel me!" />
-			</form>
 		</div>
 		<div class="lifeprogress">
 			<h3>Current Progress in Life</h3>
 			<p>Mediocre. You really should enjoy life more.</p>
+		</div>
+		<div class="content">
+			<h2>Lorem Ipsum Dolor Sit Amet.</h2>
+			<div class="contenttext">
+				<p>How do you feel today?<br />
+				<br />
+				How would you like to feel today?<br />(choose all that apply)</p>
+			</div>
+			<div class="contentboxes">
+				<form action="" onSubmit="return checkOption();" >
+					<input type="text" id="youfeel"/>
+					<br />
+					<br />
+					<select multiple="multiple" size="4" id="wantfeel">
+						<option>Comfortably numb</option>
+						<option>Grumpy as poop, you jerk</option>
+						<option>Happy like I'm on controlled substances</option>
+						<option>Normal. Absolutely Normal.</option>
+					</select>
+					<br />
+					<input type="submit" value="Feel me!" />
+				</form>
+			</div>
 		</div>
 		<div class="footer">
 			<p>&copy; 2011 Borg-Like Monstrosity of Mind Control, Inc. All rights reserved.</p>
