@@ -6,13 +6,18 @@ class Player
 			warrior.attack!
 			@previousaction = :attack
 		else
-			warrior.walk!
-			@previousaction = :advance
+			if warrior.feel.captive?
+				warrior.rescue!
+				@previousaction = :rescue
+			else
+				warrior.walk!
+				@previousaction = :advance
+			end
 		end
 	else
 		if @previoushealth > warrior.health and (@previousaction == :advance or @previousaction == :retreat)
 			@ranged = true
-			puts 'Ranged!'
+			puts 'Ranged'
 		end
 		if @previoushealth <= warrior.health
 			@ranged = false
@@ -40,8 +45,12 @@ class Player
 					warrior.attack!
 					@previousaction = :attack
 				else
-					warrior.walk!
-					@previousaction = :advance
+					if warrior.feel.captive?
+						warrior.rescue!
+					else
+						warrior.walk!
+						@previousaction = :advance
+					end
 				end
 			end
 		end
