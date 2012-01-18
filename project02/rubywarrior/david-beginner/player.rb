@@ -19,7 +19,7 @@ class Player
 			@ranged = true
 			puts 'Ranged'
 		end
-		if @previoushealth <= warrior.health
+		if @previoushealth <= warrior.health and @previousaction != :attack
 			@ranged = false
 			puts 'Not Ranged!'
 		end
@@ -32,7 +32,7 @@ class Player
 				@previousaction = :advance
 			end
 		else
-			if warrior.health < 10
+			if warrior.health < 15
 				if warrior.feel.enemy?
 					warrior.walk!(:backward)
 					@previousaction = :retreat
