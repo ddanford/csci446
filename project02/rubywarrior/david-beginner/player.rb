@@ -10,8 +10,12 @@ class Player
 				warrior.rescue!
 				@previousaction = :rescue
 			else
-				warrior.walk!
-				@previousaction = :advance
+				if warrior.feel.wall?
+					warrior.pivot!(:backward)
+				else
+					warrior.walk!
+					@previousaction = :advance
+				end
 			end
 		end
 	else
