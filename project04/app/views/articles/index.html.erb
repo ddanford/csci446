@@ -2,6 +2,7 @@
 
 <%= link_to 'New Article', new_article_path %>
 
+<% if @articles.count > 0 %>
 <table>
   <tr>
     <th>Title</th>
@@ -12,10 +13,10 @@
 <div class="articleList">
 <% @articles.each do |article| %>
   <tr>
-    <td><% article.title %></td>
-	<td><% article.author %></td>
-	<td><% article.body %></td>
-	<td><% article.date %></td>
+    <td><%= article.title %></td>
+	<td><%= article.author %></td>
+	<td><%= article.body.truncate(40) %></td>
+	<td><%= article.created_at.to_s(:created_date) %></td>
 	
     <td><%= link_to 'Show', article %></td>
     <td><%= link_to 'Edit', edit_article_path(article) %></td>
@@ -25,4 +26,8 @@
 </div>
 </table>
 
+<%= pluralize(@articles.count, 'article') %>
+<% else %>
+<p>Be the first to write an article!</p>
+<% end %>
 <br />
