@@ -1,6 +1,9 @@
-<h1>All the World's Articles</h1>
+<h1>Articl.es</h1>
+<p>...with a name .com hipsters love!</p>
 
-<%= link_to 'New Article', new_article_path %>
+<h2>All the World's Articles</h2>
+
+<%= link_to 'New Article', new_article_path, :title => 'Create a New Article!' %>
 
 <% if @articles.count > 0 %>
 <table>
@@ -18,9 +21,9 @@
 	<td><%= article.body.truncate(40) %></td>
 	<td><%= article.created_at.to_s(:created_date) %></td>
 	
-    <td><%= link_to 'Show', article %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', article, :title => 'Show this article' %></td>
+    <td><%= link_to 'Edit', edit_article_path(article), :title => 'Edit this article' %></td>
+    <td><%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete, :title => 'Delete this article' %></td>
   </tr>
 <% end %>
 </div>
