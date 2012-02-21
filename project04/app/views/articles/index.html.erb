@@ -5,6 +5,8 @@
 
 <%= link_to 'New Article', new_article_path, :title => 'Create a New Article!' %>
 
+<div class="articleList">
+
 <% if @articles.count > 0 %>
 <table>
   <tr>
@@ -13,7 +15,6 @@
     <th>Body</th>
 	<th>Creation Date</th>
   </tr>
-<div class="articleList">
 <% @articles.each do |article| %>
   <tr class="<%= cycle("even","odd") %>">
     <td><%= article.title %></td>
@@ -26,8 +27,8 @@
     <td><%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete, :title => 'Delete this article' %></td>
   </tr>
 <% end %>
-</div>
 </table>
+</div>
 
 <%= pluralize(@articles.count, 'article') %>
 <% else %>

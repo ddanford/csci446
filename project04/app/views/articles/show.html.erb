@@ -5,7 +5,8 @@
 
 <%= link_to 'Back', articles_path, :title => 'Back to list of Articles' %> | 
 <%= link_to 'Edit', edit_article_path(@article), :title => 'Edit Article' %> | 
-<%= link_to 'Destroy', @article, confirm: 'Are you sure?', method: :delete, :title => 'Delete this article' %>
+<%= link_to 'Destroy', @article, confirm: 'Are you sure?', method: :delete, :title => 'Delete this article' %> |
+<%= article_mailto 'E-mail', @article %>
 
 <h2> <%= @article.title %> </h2>
 

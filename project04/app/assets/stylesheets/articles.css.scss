@@ -2,16 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.articles {
+.articleList {
+  width: 100%;
+  overflow: auto
+}
 
-	.articleList {
-		height:60%;
-		min-height:40px;
-		width:100%;
-		overflow:scroll;
-	}
-	
-	.even {
-		background-color:#222222;
-	}
+.even {
+  background-color:#eeeeee;
 }
