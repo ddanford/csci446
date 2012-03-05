@@ -1,24 +1,20 @@
-<h1>Articl.es</h1>
-<p>...not just for the country of Spain</p>
+%h1
+  Articl.es
+%p
+  ...not just for the country of Spain
 
-<p><%= link_to 'Back', articles_path, :title => 'Back to list of Articles' %></p>
+%p
+  = link_to 'Back', articles_path, :title => 'Back to list of Articles'
 
-<h2>New article</h2>
+%h2
+  New article
 
-<%= form_for(@article) do |f| %>
-  <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
-
-      <ul>
-      <% @article.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-<%= render 'form' %>
-  <div class="actions">
-    <%= f.submit 'Create', :title => 'Create article' %>
-  </div>
-<% end %>
+- form_for(@article) do |f|
+  = f.error_messages
+  - field_set_tag nil, :id => 'scaffold' do
+    = f.error_messages
+	%ol
+	  = render :partial => "form", :locals => {:f => f}
+	  %li
+	    = f.label :submit, '&nbsp;'
+		= f.submit 'Create Article'

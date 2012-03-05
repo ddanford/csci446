@@ -1,18 +1,18 @@
-<h1>Articl.es</h1>
-<p>...what is &quot;Articl&quot; in Spanish anyway?</p>
+%h1
+  Articl.es
+  
+%p
+  ...what is &quot;Articl&quot; in Spanish anyway?
 
-<p id="notice"><%= notice %></p>
+= link_to 'Back', articles_path, :title => 'Back to list of Articles' | 
+= link_to 'Edit', edit_article_path(@article), :title => 'Edit Article' | 
+= link_to 'Destroy', @article, confirm: 'Are you sure?', method: :delete, :title => 'Delete this article' |
+= article_mailto 'E-mail', @article
 
-<%= link_to 'Back', articles_path, :title => 'Back to list of Articles' %> | 
-<%= link_to 'Edit', edit_article_path(@article), :title => 'Edit Article' %> | 
-<%= link_to 'Destroy', @article, confirm: 'Are you sure?', method: :delete, :title => 'Delete this article' %> |
-<%= article_mailto 'E-mail', @article %>
+%h2
+  = @article.title
 
-<h2> <%= @article.title %> </h2>
+%p
+  By = @article.author. = @article.edits edits since = @article.created_at.to_s(:created_day)
 
-<p>By <%= @article.author %>. <%= @article.edits %> edits since <%= @article.created_at.to_s(:created_day) %></p>
-
-<%= simple_format(@article.body) %>
-
-<br />
-
+= simple_format(@article.body)
