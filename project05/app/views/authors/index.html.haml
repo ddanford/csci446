@@ -12,8 +12,13 @@
             %td= h a.name
             %td= h a.articles.count
             %td
-              = link_to 'Show', show_author_path
+              = link_to 'Show', a
               = link_to 'Edit', edit_author_path(a)
               = link_to 'Destroy', a, confirm: 'Are you sure?', method: :delete, :title => 'Delete this author'
+      - else
+        %tr
+          %td{:colspan => "5"} There are no authors, be the first to write!
 
 = link_to 'New Author', new_author_path
+
+= link_to 'Articles', articles_path

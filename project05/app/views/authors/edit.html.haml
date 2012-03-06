@@ -1,12 +1,15 @@
 %h1 Editing author
 
-- form_for(@author, :html => { multipart => true }) do |f|
-  - field_set_tag nil, :id => 'scaffold' do
-    = f.error_messages
-	%ol
-	  = render :partial => "form", :locals => {:f => f}
-	  %li
-	    = f.submit 'Update'
+- if @author.errors.any?
+  = @author.errors.full_messages
+
+
+= form_for(@author, :html => { :multipart => true }) do |f|
+  = field_set_tag nil, :id => 'scaffold' do
+    %ol
+      = render :partial => "form", :locals => {:f => f}
+      %li
+        = f.submit 'Update'
 
 = link_to 'Show', @author
 = link_to 'Back', authors_path
