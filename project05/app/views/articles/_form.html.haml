@@ -4,9 +4,9 @@
 %li
   = f.label :author_id
   = f.collection_select :author_id, Author.all, :id, :name, :prompt => "Select an Author"
+  %br
   Or Create New Author
   %br
-  = f.label '%nbsp;'
   = f.text_field :new_author_name
 %li
   = f.label :body

@@ -5,7 +5,7 @@ class Article < ActiveRecord::Base
 	cattr_reader :per_page
 	@@per_page = 10
 	
-	validates :author, :title, :body, presence: true
+	validates :title, :body, presence: true
 	
 	before_update :increment_edits
 	before_save :create_new_author
@@ -16,6 +16,6 @@ class Article < ActiveRecord::Base
 		end
 	
 		def create_new_author
-			create_author(:name => new_author_name)
+			create_author(:name => new_author_name) unless new_author_name.blank?
 		end
 end

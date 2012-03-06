@@ -1,18 +1,20 @@
 %h3
   Articl.es
 %p
-  \.\.\.not just for the country of Spain
+  \...not just for the country of Spain
 
 = link_to_function 'Back', "history.back()", :title => 'Go Back'
 
 %h2
   Editing "#{@article.title}"
 
-- form_for(@article) do |f|
-  - field_set_tag nil, :id => 'scaffold' do
-    = f.error_messages
-	%ol
-	  = render :partial => "form", :locals => {:f => f}
-	  %li
-	    = f.label :submit, "%nbsp;"
-		= f.submit "Submit Changes"
+- if @article.errors.any?
+  = @article.errors.full_messages
+
+= form_for(@article) do |f|
+  = field_set_tag nil, :id => 'scaffold' do
+    %ol
+      = render :partial => "form", :locals => {:f => f}
+      %li
+        = f.label :submit, "%nbsp;"
+        = f.submit "Submit Changes"

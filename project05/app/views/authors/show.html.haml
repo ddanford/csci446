@@ -2,7 +2,7 @@
   - if @author.photo?
     %img{:src => @author.photo.url(:thumb)}
   %span.clear &nbsp;
-  %h3 = h @author.name
+  %h3= h @author.name
   
 %div
   - if @author.articles.any?
