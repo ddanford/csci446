@@ -1,5 +1,15 @@
-<p id="notice"><%= notice %></p>
+%div{:id => 'author_block'}
+  - if @author.photo?
+    %img{:src => @author.photo.url(:thumb)}
+  %span.clear &nbsp;
+  %h3 = h @author.name
+  
+%div
+  - if @author.articles.any?
+    - @author.articles.each do |ar|
+      %div=link_to ar.title, article_path(ar)
+  -else
+    %div==#{h @author.name} has not written any articles\.  He's a bum\!
 
-
-<%= link_to 'Edit', edit_author_path(@author) %> |
-<%= link_to 'Back', authors_path %>
+= link_to 'Edit', edit_author_path(@author)
+= link_to 'Back', authors_path

@@ -1,6 +1,12 @@
-<h1>Editing author</h1>
+%h1 Editing author
 
-<%= render 'form' %>
+- form_for(@author, :html => { multipart => true }) do |f|
+  - field_set_tag nil, :id => 'scaffold' do
+    = f.error_messages
+	%ol
+	  = render :partial => "form", :locals => {:f => f}
+	  %li
+	    = f.submit 'Update'
 
-<%= link_to 'Show', @author %> |
-<%= link_to 'Back', authors_path %>
+= link_to 'Show', @author
+= link_to 'Back', authors_path

@@ -1,21 +1,19 @@
-<h1>Listing authors</h1>
+%h1 Listing authors
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+#table-wrapper
+  %table#authors
+    %thead
+      %th Name
+      %th Articles
+    %tbody
+      - unless @authors.empty?
+        - @authors.each do |a|
+          %tr
+            %td= h a.name
+            %td= h a.articles.count
+            %td
+              = link_to 'Show', show_author_path
+              = link_to 'Edit', edit_author_path(a)
+              = link_to 'Destroy', a, confirm: 'Are you sure?', method: :delete, :title => 'Delete this author'
 
-<% @authors.each do |author| %>
-  <tr>
-    <td><%= link_to 'Show', author %></td>
-    <td><%= link_to 'Edit', edit_author_path(author) %></td>
-    <td><%= link_to 'Destroy', author, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Author', new_author_path %>
+= link_to 'New Author', new_author_path
