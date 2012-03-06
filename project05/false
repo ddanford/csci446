@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20120306004640_add_integer_author_id_to_article_not_null.rb

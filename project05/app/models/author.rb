@@ -1,6 +1,7 @@
 class Author < ActiveRecord::Base
 	has_many :articles
 	validate :name_not_pat
+	validates :name, presence: true
 	
 	has_attached_file :photo,
 		:styles => { :thumb => "100x100#", :small => "150x150>" }

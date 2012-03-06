@@ -1,7 +1,7 @@
 %h1
   Articl.es
 %p
-  ...not just for the country of Spain
+  \...not just for the country of Spain
 
 %p
   = link_to 'Back', articles_path, :title => 'Back to list of Articles'
@@ -10,11 +10,11 @@
   New article
 
 - form_for(@article) do |f|
-  = f.error_messages
+  = @article.errors.full_messages
   - field_set_tag nil, :id => 'scaffold' do
-    = f.error_messages
-	%ol
-	  = render :partial => "form", :locals => {:f => f}
-	  %li
-	    = f.label :submit, '&nbsp;'
-		= f.submit 'Create Article'
+    = @article.errors.full_messages
+    %ol
+      = render :partial => "form", :locals => {:f => f}
+      %li
+        = f.label :submit, '&nbsp;'
+        = f.submit 'Create Article'

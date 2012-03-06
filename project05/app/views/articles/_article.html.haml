@@ -1,0 +1,10 @@
+%tr
+  %td{:title => article.title} = h truncate(article.title, :length => :35)
+  %td= h article.author.name
+  %td= h truncate(article.body, :length => 30)
+  %td= h article.created_at.to_s(:created_date)
+  %td
+    = link_to 'Back', articles_path, :title => 'Back to list of Articles'
+    = link_to 'Edit', edit_article_path(@article), :title => 'Edit Article'
+    = link_to 'Destroy', @article, confirm: 'Are you sure?', method: :delete, :title => 'Delete this article'
+    = article_mailto 'E-mail', @article
